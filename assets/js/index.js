@@ -51,29 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
 
-    cardArray.sort(() => 0.5- Math.random())
 
-
-
-const board = document.getElementById('board')
-
-
-let chosenCards = [];
-let cardsChosenId = [];
-let cardsWon = [];
-
-
-
+    let chosenCards = [];
+    let cardsChosenId = [];
+    let cardsWon = [];
 
 
 function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
+    
+    document.getElementById("afterWon").textContent = "";
+    cardArray.sort(() => 0.5- Math.random())
+    const board = document.getElementById('board')
       const card = document.createElement('img')
       card.setAttribute('src', 'assets/images/card.jpg')
       card.setAttribute('class', 'card')
       card.setAttribute('data-id', i)
       card.addEventListener('click', flipCard)
       board.appendChild(card)
+      console.log(board)
     }
   }
 
@@ -111,17 +107,19 @@ function createBoard() {
       chosenCards = []
       cardsChosenId = []
         if  (cardsWon.length === cardArray.length/2) {
-            document.getElementById("eventsInGame").textContent = ""
-
-   document.getElementById("afterWon").textContent = "BRAWO UDAŁO CI SIE!";
-   const btn = document.createElement('BUTTON');
-   btn.innerHTML = "PLAY AGAIN!";                   
-    document.body.appendChild(btn);  
-    btn.addEventListener('click', createBoard)
+            document.getElementById("eventsInGame").textContent = "";
+            cardsWon = [];
+            document.getElementById("board").textContent = "";
+            document.getElementById("afterWon").textContent = "BRAWO UDAŁO CI SIE!";
+            let btn = document.createElement('BUTTON');
+            btn.innerHTML = "PLAY AGAIN!";                   
+            document.body.appendChild(btn); 
+            btn.setAttribute('class', 'button');
+            btn.addEventListener('click', createBoard);
+            btn.addEventListener('click', () => btn.setAttribute('class', 'buttonDisappear'));
 
       }
     }
-
 }
 
 createBoard()

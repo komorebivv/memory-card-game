@@ -34,4 +34,15 @@ body{
 #eventsInGame {
     margin-top: 300px;
     font-size: 50px;
+
+}
+
+.button {
+    width: 70px;
+    height: 40px;
+}
+
+
+.buttonDisappear {
+    display: none;
 }
