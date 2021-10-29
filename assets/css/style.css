@@ -1,9 +1,29 @@
-body{
-    background: linear-gradient(90deg, rgba(69,227,252,1) 0%, rgba(66,152,203,1) 100%, rgba(69,227,252,1) 100%);
-        box-sizing: border-box;
-    display: flex;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fruktur&family=Roboto:wght@100&display=swap');
 
+body{
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;    
+    box-sizing: border-box;
+    display: flex;
+    font-family: 'Fruktur', cursive;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 
 
 #board {
@@ -15,6 +35,47 @@ body{
 }
 
 
+
+.start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.startInstructions {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 80px;
+    font-weight: 600;
+    font-size: 17px;
+    text-align: center;
+    width: 75%;
+    line-height: 30px;;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+
+h1 {
+    font-size: 80px;
+    margin-bottom: 50px;
+    
+}
+
+.ml2 {
+    font-weight: 900;
+    font-size: 80px;;
+  }
+  
+  .ml2 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+
+
 .hiddenCard {
     visibility: hidden;
     margin: 2px;
@@ -23,24 +84,42 @@ body{
 .card {
     margin: 2px;
     border-radius: 5%;
+    cursor: pointer;
+    transition: transform 0.25s;
+}
+
+.flip{
+	transform: rotateY(180deg);
 }
 
 #afterWon {
     font-size: 100px;
-    position: absolute;
+    display: flex;
+    flex-direction: row;
 
 }
 
 #eventsInGame {
-    margin-top: 300px;
     font-size: 50px;
-
+    width: 30%;
+    text-align: center;
+    margin-right: 20px;
 }
 
-.button {
-    width: 70px;
-    height: 40px;
+button {
+    font-family: Roboto, sans-serif;
+    padding: 15px;
+    font-weight: 800;
+    border: #ee7752;
+    background: linear-gradient(-45deg, #23d5ab, #23a6d5, #e73c7e, #ee7752 );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;    
 }
+
+button:hover {
+    cursor: pointer;
+}
+
 
 
 .buttonDisappear {
